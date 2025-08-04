@@ -40,12 +40,12 @@ resource "aws_instance" "app" {
               #!/bin/bash
               sudo apt update
               sudo apt install -y nodejs npm git pm2
-              git clone https://github.com/<your-username>/<repo>.git /home/ubuntu/app
-              cd /home/ubuntu/app
-              npm install
-              pm2 start index.js --name app
-              pm2 startup
-              pm2 save
+              # git clone https://github.com/<your-username>/<repo>.git /home/ubuntu/app
+              # cd /home/ubuntu/app
+              # npm install
+              # pm2 start index.js --name app
+              # pm2 startup
+              # pm2 save
             EOF
 
   tags = { Name = "node-app-ec2" }
@@ -54,9 +54,3 @@ resource "aws_instance" "app" {
 output "ec2_ip" {
   value = aws_instance.app.public_ip
 }
-
-
-
-terraform init
-terraform plan
-terraform apply
